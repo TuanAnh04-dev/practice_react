@@ -30,4 +30,15 @@ const updateUser = (id, name, job) => {
     });
 }
 
-export { fetchtAllUser, postUser, updateUser }
+const loginApi = (email, password) => {
+    return axios.post("https://reqres.in/api/login", {
+        email,
+        password
+    }, {
+        headers: {
+            "x-api-key": "reqres-free-v1"
+        },
+    });
+}
+
+export { fetchtAllUser, postUser, updateUser, loginApi }

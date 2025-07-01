@@ -24,23 +24,19 @@ const TableUser = () => {
     const getUsers = async (page) => {
         let res = await fetchtAllUser(page);
         console.log(res)
-
-
-
         if (res && res.data) {
             setListUser(res.data);
             setTotalUser(res.total);
             setTotalPages(res.total_pages);
         }
     }
-
     const handlePageClick = (event) => {
         getUsers(+event.selected + 1)
     }
 
     return (<>
         < div className='my-3 d-flex justify-content-between align-items-center' >
-            <div>List user </div>
+            <h2>List user </h2>
             <Button variant="success" onClick={() => { setShowModalCreate(true) }}>Thêm mới</Button>
         </div>
         <Table striped bordered hover >

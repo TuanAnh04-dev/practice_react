@@ -35,7 +35,14 @@ const UpdateModals = (props) => {
             className="modal show"
             style={{ display: 'block', position: 'initial' }}
         >
-            <Modal show={showModalUpdate} onHide={() => { setShowModalUpdate(false) }}>
+            <Modal
+                show={showModalUpdate}
+                onHide={() => {
+                    setShowModalUpdate(false)
+                }}
+                backdrop="static"
+                keyboard={false}
+            >
                 <Modal.Header closeButton>
                     <Modal.Title>Update user</Modal.Title>
                 </Modal.Header>
