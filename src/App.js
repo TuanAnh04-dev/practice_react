@@ -1,31 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
-import AppModals from './components/app.modals';
 import AppHeader from './components/header';
 import TableUser from './components/TableUser';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
-
-  const [showModal, setShowModal] = useState(false);
-
-  const handleClose = () => { setShowModal(false); }
-
   return (
-    <div className="App-Container" >
-      <Container>
-        <AppHeader />
-        < div className='my-3 d-flex justify-content-between align-items-center' >
-          <div>List user </div>
-          <Button variant="success" onClick={() => { setShowModal(true) }}>Thêm mới</Button>
-        </div>
-        < TableUser />
+    <>
+      <div className="App-Container" >
+        <Container>
+          <AppHeader />
+          < TableUser />
+        </Container>
 
-      </Container>
 
-      <AppModals showModal={showModal} setShowModal={handleClose} />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <ToastContainer />
+      </div>
+    </>
 
-    </div>
   );
 }
 
