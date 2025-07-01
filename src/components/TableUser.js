@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+
 import { fetchtAllUser } from "../service/UserService";
 import ReactPaginate from "react-paginate";
+import { Table } from "react-bootstrap";
 
-const TableUser = (props) => {
+const TableUser = () => {
     const [listUser, setListUser] = useState([]);
     const [totalUser, setTotalUser] = useState(0)
     const [totalPages, setTotalPages] = useState(0)
@@ -31,13 +32,13 @@ const TableUser = (props) => {
 
 
     return (<>
-        <Table striped bordered hover>
+        <Table striped bordered hover >
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>Email</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>id </th>
+                    <th> Email </th>
+                    <th> First Name </th>
+                    <th> Last Name </th>
                 </tr>
             </thead>
             <tbody>
@@ -45,18 +46,19 @@ const TableUser = (props) => {
                     listUser && listUser.length > 0 &&
                     listUser.map((item, i) => {
                         return (
-                            <tr key={`users-${i}`}>
-                                <td>{item.id}</td>
-                                <td>{item.email}</td>
-                                <td>{item.first_name}</td>
-                                <td>{item.last_name}</td>
+                            <tr key={`users-${i}`
+                            }>
+                                <td>{item.id} </td>
+                                < td > {item.email} </td>
+                                < td > {item.first_name} </td>
+                                < td > {item.last_name} </td>
                             </tr>
                         );
                     })
                 }
             </tbody>
         </Table>
-        <ReactPaginate
+        < ReactPaginate
             breakLabel="..."
             nextLabel="next >"
             onPageChange={handlePageClick}
